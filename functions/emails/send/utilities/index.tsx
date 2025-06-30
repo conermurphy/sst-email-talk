@@ -1,6 +1,5 @@
 import { z } from 'zod'
 import { render } from '@react-email/render'
-import { emailRecordSchema } from './schemas'
 import { Welcome, Second } from './templates'
 import { emailSchema } from '..'
 
@@ -8,7 +7,7 @@ type Return =
   | {
       success: false
       error: string
-      type: z.infer<typeof emailRecordSchema>['data']['type']
+      type: z.infer<typeof emailSchema>['type']
     }
   | { success: true; subject: string; body: { html: string; text: string } }
 
